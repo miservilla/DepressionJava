@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 
-        System.out.println("Hello, this program will help you complete the PHQ-9 depresion questionnaire.\n\n"
+        System.out.println("Hello, this program will help you complete the PHQ-9 depression questionnaire.\n\n"
                 + "Use the following responses to answer ALL 9 questions:\n"
                 + "0 = Not at all, 1 = Several days, 2 = More than half the days, 3 = Nearly every day.\n\n"
                 + "Over the past 2 weeks, how often have you been bothered by the following problems:\n");
@@ -58,7 +58,7 @@ public class Main {
             System.out.println("\nMajor Depressive Syndrome criteria is met!\n"
                     + "\nIf there is no history of a manic episode; no evidence that a physical\n"
                     + "disorder, medication, or other drug caused the depression; and no indication\n"
-                    + "that the depressiive symptoms were normal bereavement, then Major Depressive\n"
+                    + "that the depressive symptoms were normal bereavement, then Major Depressive\n"
                     + "Disorder diagnosis is present.\n");
         }
 
@@ -113,7 +113,7 @@ public class Main {
             {
                 System.out.println("\nThe PHQ-9 severity score was " + totalScore + ".");
                 System.out.println("\nSevere depression. Immediate initiation of pharmacotherapy and, if severe\n"
-                        + "impairment or poor responser to therapy, expeditied referral to a mental health specialist\n"
+                        + "impairment or poor response to therapy, expedited referral to a mental health specialist\n"
                         + " for psychotherapy and/or collaborative management.");
                 break;
 
