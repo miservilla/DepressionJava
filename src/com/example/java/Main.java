@@ -1,12 +1,13 @@
 package com.example.java;
 
-import java.time.format.DateTimeFormatter;
+
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
+        String item;
 
         System.out.println("Hello, this program will help you complete the PHQ-9 depression questionnaire.\n\n"
                 + "Use the following responses to answer ALL 9 questions:\n"
@@ -14,28 +15,37 @@ public class Main {
                 + "Over the past 2 weeks, how often have you been bothered by the following problems:\n");
 
         System.out.println("Little interest or pleasure in doing things? ");
-        int Item1 = in.nextInt();
+        item = TryParseIn(in.next());
+        int Item1 = Integer.parseInt(item);
         System.out.println("Feeling down, depressed, or hopeless? ");
-        int Item2 = in.nextInt();
+        item = TryParseIn(in.next());
+        int Item2 = Integer.parseInt(item);
         System.out.println("Trouble falling or staying asleep, or sleeping too much? ");
-        int Item3 = in.nextInt();
+        item = TryParseIn(in.next());
+        int Item3 = Integer.parseInt(item);
         System.out.println("Feeling tired or having little energy? ");
-        int Item4 = in.nextInt();
+        item = TryParseIn(in.next());
+        int Item4 = Integer.parseInt(item);
         System.out.println("Poor appetite or overeating? ");
-        int Item5 = in.nextInt();
+        item = TryParseIn(in.next());
+        int Item5 = Integer.parseInt(item);
         System.out.println("Feeling bad about yourself — or that you are a failure or\n"
                 + "have let yourself or your family down? ");
-        int Item6 = in.nextInt();
+        item = TryParseIn(in.next());
+        int Item6 = Integer.parseInt(item);
         System.out.println("Trouble concentrating on things, such as reading the\n"
                 + "newspaper or watching television? ");
-        int Item7 = in.nextInt();
+        item = TryParseIn(in.next());
+        int Item7 = Integer.parseInt(item);
         System.out.println("Moving or speaking so slowly that other people could have\n"
                 + "noticed? Or the opposite — being so fidgety or restless\n"
                 + "that you have been moving around a lot more than usual? ");
-        int Item8 = in.nextInt();
+        item = TryParseIn(in.next());
+        int Item8 = Integer.parseInt(item);
         System.out.println("Thoughts that you would be better off dead or of hurting\n"
                 + "yourself in some way? ");
-        int Item9 = in.nextInt();
+        item = TryParseIn(in.next());
+        int Item9 = Integer.parseInt(item);
 
         int mddCount = 0;
 
@@ -114,7 +124,7 @@ public class Main {
                 System.out.println("\nThe PHQ-9 severity score was " + totalScore + ".");
                 System.out.println("\nSevere depression. Immediate initiation of pharmacotherapy and, if severe\n"
                         + "impairment or poor response to therapy, expedited referral to a mental health specialist\n"
-                        + " for psychotherapy and/or collaborative management.");
+                        + "for psychotherapy and/or collaborative management.");
                 break;
 
             }
@@ -125,4 +135,22 @@ public class Main {
         }
 
     }
+    private static String TryParseIn(String number) {
+        int i = 0;
+        while (i == 0) {
+            try {
+                Integer.parseInt(number);
+                return number;
+            } catch (NumberFormatException e) {
+                System.out.println("Value can't be parsed as a number, please try again!");
+                i = 0;
+                Scanner in = new Scanner(System.in);
+                number = in.next();
+            }
+        }
+
+        return number;
+
+    }
+
 }
