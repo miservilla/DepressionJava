@@ -16,36 +16,36 @@ public class Main {
 
         System.out.println("Little interest or pleasure in doing things? ");
         item = TryParseIn(in.next());
-        int Item1 = Integer.parseInt(item);
+        int Item1 = NumberOutOfRange(Integer.parseInt(item));
         System.out.println("Feeling down, depressed, or hopeless? ");
         item = TryParseIn(in.next());
-        int Item2 = Integer.parseInt(item);
+        int Item2 = NumberOutOfRange(Integer.parseInt(item));
         System.out.println("Trouble falling or staying asleep, or sleeping too much? ");
         item = TryParseIn(in.next());
-        int Item3 = Integer.parseInt(item);
+        int Item3 = NumberOutOfRange(Integer.parseInt(item));
         System.out.println("Feeling tired or having little energy? ");
         item = TryParseIn(in.next());
-        int Item4 = Integer.parseInt(item);
+        int Item4 = NumberOutOfRange(Integer.parseInt(item));
         System.out.println("Poor appetite or overeating? ");
         item = TryParseIn(in.next());
-        int Item5 = Integer.parseInt(item);
+        int Item5 = NumberOutOfRange(Integer.parseInt(item));
         System.out.println("Feeling bad about yourself — or that you are a failure or\n"
                 + "have let yourself or your family down? ");
         item = TryParseIn(in.next());
-        int Item6 = Integer.parseInt(item);
+        int Item6 = NumberOutOfRange(Integer.parseInt(item));
         System.out.println("Trouble concentrating on things, such as reading the\n"
                 + "newspaper or watching television? ");
         item = TryParseIn(in.next());
-        int Item7 = Integer.parseInt(item);
+        int Item7 = NumberOutOfRange(Integer.parseInt(item));
         System.out.println("Moving or speaking so slowly that other people could have\n"
                 + "noticed? Or the opposite — being so fidgety or restless\n"
                 + "that you have been moving around a lot more than usual? ");
         item = TryParseIn(in.next());
-        int Item8 = Integer.parseInt(item);
+        int Item8 = NumberOutOfRange(Integer.parseInt(item));
         System.out.println("Thoughts that you would be better off dead or of hurting\n"
                 + "yourself in some way? ");
         item = TryParseIn(in.next());
-        int Item9 = Integer.parseInt(item);
+        int Item9 = NumberOutOfRange(Integer.parseInt(item));
 
         int mddCount = 0;
 
@@ -135,22 +135,34 @@ public class Main {
         }
 
     }
-    private static String TryParseIn(String number) {
+    private static String TryParseIn(String number){ //method to check input to be integer
         int i = 0;
-        while (i == 0) {
+        do {
             try {
                 Integer.parseInt(number);
+
                 return number;
             } catch (NumberFormatException e) {
                 System.out.println("Value can't be parsed as a number, please try again!");
-                i = 0;
+
                 Scanner in = new Scanner(System.in);
                 number = in.next();
+
+
             }
-        }
+        } while (i == 0);
 
         return number;
 
+    }
+    private static int NumberOutOfRange(int number){ //method to check input is within desired range (0 - 3)
+        while (number < 0 || number > 3) {
+            System.out.println("Value is out of range, please try again!");
+            Scanner in = new Scanner(System.in);
+            String item = TryParseIn(in.next());
+            number = Integer.parseInt(item);
+        }
+        return number;
     }
 
 }
